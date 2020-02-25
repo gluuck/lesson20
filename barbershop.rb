@@ -3,6 +3,11 @@ require "sinatra/reloader"
 get '/' do
   erb :index
 end
+get '/admin' do
+  @text =File.open("user.txt","r")
+  erb :admin
+  #@text.close
+end
 post '/' do
   @name = params[:name]
   @phone = params[:phone]
