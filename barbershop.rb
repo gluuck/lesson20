@@ -10,5 +10,8 @@ post '/' do
   #erb :index
   @title = 'Thank you for rerite'
   @message = "Dear #{@name} , your phone number #{@phone} , your date an time #{@date_time}"
+  f = File.open 'user.txt', 'a'
+  f.write "User: #{@name}, Phone number: #{@phone} , date and time: #{@date_time}"
+  f.close
   erb :message
 end
